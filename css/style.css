@@ -1,0 +1,117 @@
+/* assets/styles.css - Shared styles for Legendary Hair Salon */
+:root{
+  --bg:#0b0b0c;
+  --panel:#121212;
+  --text:#f6f6f7;
+  --muted:#bfc0c6;
+  --accent:#d4af37; /* gold */
+  --accent-2:#e9c77f;
+  --radius:14px;
+  --shadow:0 12px 32px rgba(0,0,0,.6);
+  --container:1150px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+  margin:0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Container */
+.container{width:calc(100% - 40px); max-width:var(--container); margin:0 auto}
+
+/* Top navigation */
+header.site{
+  position:fixed; left:0; right:0; top:0; z-index:60;
+  background:linear-gradient(180deg, rgba(26, 190, 231, 0.925), rgba(248, 4, 4, 0.781));
+  backdrop-filter: blur(6px) saturate(120%);
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+header .inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:14px;font-weight:700;letter-spacing:.6px}
+.brand .logo{
+  width:46px;height:46px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:grid;place-items:center;color:#080808;font-weight:900;font-size:20px;box-shadow:var(--shadow)
+}
+nav.site-links{display:flex;gap:12px;align-items:center}
+nav.site-links a{
+  color:var(--text); text-decoration:none; padding:8px 12px; border-radius:10px;
+  font-weight:600; font-size:14px; opacity:.95; border:1px solid rgba(255,255,255,.03)
+}
+nav.site-links a:hover{background:rgba(217,176,83,.08); border-color:rgba(217,176,83,.18)}
+nav.site-links a.active{background:rgba(217,176,83,.12); color:var(--accent)}
+
+/* Hero */
+.hero{
+  height:92vh; min-height:520px; display:flex; align-items:center;
+  background-image:linear-gradient(180deg, rgba(2,2,3,.2), rgba(2,2,3,.45)), url('https://images.unsplash.com/photo-1543168256-418811576f34?auto=format&fit=crop&w=1400&q=80');
+  background-size:cover; background-position:center;
+  padding-top:88px;
+}
+.hero .card{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.04);
+  padding:34px; border-radius:16px; max-width:780px; box-shadow:var(--shadow);
+}
+.hero h1{font-size:48px;margin:0 0 10px; letter-spacing: -1px}
+.hero p{margin:0 0 18px;color:var(--muted); font-size:16px}
+
+/* Sections */
+.section{padding:80px 0}
+.section.bg-image{
+  background-image:linear-gradient(180deg, rgba(2,2,3,.55), rgba(2,2,3,.55)), url('https://images.unsplash.com/photo-1516900557546-746fcb6f3d88?auto=format&fit=crop&w=1400&q=80');
+  background-size:cover;background-position:center;color:var(--text)
+}
+.section .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:1000px){ .section .grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){ .section .grid{grid-template-columns:1fr} .hero h1{font-size:34px} }
+
+/* Cards */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.04); padding:20px; border-radius:12px;
+}
+
+/* Team */
+.team-member img{width:100%;height:260px;object-fit:cover;border-radius:10px;margin-bottom:12px}
+.team-member h4{margin:6px 0 2px}
+.team-member p{color:var(--muted);margin:0}
+
+/* Services */
+.services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+@media (max-width:900px){ .services-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){ .services-grid{grid-template-columns:1fr} }
+
+.service{
+  background:transparent;border:1px solid rgba(255,255,255,.04); padding:26px;border-radius:12px;
+  text-align:left;
+}
+.service h3{margin:0 0 8px}
+.service p{color:var(--muted); margin:0 0 12px}
+.service .price{font-weight:800;color:var(--accent)}
+
+/* Forms */
+form .row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+@media (max-width:700px){form .row{grid-template-columns:1fr}}
+input, textarea, select{
+  width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.02); color:var(--text); outline:none;
+}
+input::placeholder, textarea::placeholder{color:rgba(255,255,255,.45)}
+button.btn-primary{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2)); border:none; padding:12px 18px; border-radius:10px;
+  color:#080808;font-weight:800; cursor:pointer;
+}
+
+/* Footer */
+footer{padding:32px 0;border-top:1px solid rgba(255,255,255,.04); color:var(--muted)}
+.footer-grid{display:flex;justify-content:space-between;gap:20px;align-items:center}
+@media (max-width:700px){.footer-grid{flex-direction:column; text-align:center}}
+
+/* helpers */
+.kicker{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.04);color:var(--accent);margin-bottom:16px;font-weight:700}
+.center{max-width:980px;margin:0 auto}
+.small{font-size:13px;color:var(--muted)}
